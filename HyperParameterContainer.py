@@ -1,4 +1,3 @@
-
 class HyperParameterContainer:
     def __init__(self):
         # using a dictionary as the container for all the hyperparameters
@@ -15,3 +14,6 @@ class HyperParameterContainer:
             self._HyperParameterDict[HP] = newValue
         else:
             raise ValueError("Target HyperParameter Not Found")
+    
+    def addHP(self, name, value):
+        self._HyperParameterDict[name] = value

@@ -11,7 +11,7 @@ class StrategyExcutor:
         self.optimizer = optim.SGD(self.model.parameters(), lr=hyperparams_container.getHP('lr'), momentum=hyperparams_container.getHP('momentem'))
         self.hyperparams_container = hyperparams_container
     
-    def training(self):
+    def train(self):
         for epoch in range(self.hyperparams_container.getHP('epoch')):
             running_loss = 0.0
             for i, data in enumerate(self.train_loader, 0):

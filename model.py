@@ -4,6 +4,7 @@ import torchvision.transforms as transforms
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+from HyperTuner import HyperTuner
 
 transform = transforms.Compose(
     [transforms.ToTensor(),
@@ -41,5 +42,8 @@ class Net(nn.Module):
         x = F.relu(self.fc2(x))
         x = self.fc3(x)
         return x
+
+tuner = HyperTuner(Net, testloader, trainloader)
+tuner.tune()
 
 print('Finished Training')
